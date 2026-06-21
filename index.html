@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2B策略销售 · 新员工入职培训手册</title>
+<style>
+/* ===== Reset & Base ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:#0f172a;color:#e2e8f0;line-height:1.7;overflow-x:hidden
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#1e293b}
+::-webkit-scrollbar-thumb{background:#475569;border-radius:3px}
+
+/* ===== Variables ===== */
+:root{
+  --primary:#38bdf8;--primary2:#818cf8;--accent:#f59e0b;
+  --success:#34d399;--danger:#f87171;--warning:#fbbf24;
+  --bg-card:#1e293b;--bg-card2:#273449;--border:#334155;
+  --radius:12px;--radius-sm:8px;--shadow:0 4px 24px rgba(0,0,0,.3);
+}
+
+/* ===== Navigation ===== */
+.side-nav{
+  position:fixed;left:0;top:0;width:260px;height:100vh;
+  background:#1a2332;border-right:1px solid var(--border);
+  z-index:100;overflow-y:auto;padding:24px 0;transition:transform .3s
+}
+.side-nav.hidden{transform:translateX(-100%)}
+.nav-logo{
+  padding:0 20px 20px;border-bottom:1px solid var(--border);margin-bottom:16px
+}
+.nav-logo h2{font-size:1.1rem;background:linear-gradient(135deg,var(--primary),var(--primary2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo span{font-size:.75rem;color:#64748b}
+.nav-section{font-size:.7rem;text-transform:uppercase;color:#64748b;padding:12px 20px 6px;letter-spacing:.1em}
+.nav-link{
+  display:block;padding:8px 20px;color:#94a3b8;text-decoration:none;
+  font-size:.85rem;border-left:3px solid transparent;transition:all .2s
+}
+.nav-link:hover,.nav-link.active{color:var(--primary);background:rgba(56,189,248,.08);border-left-color:var(--primary)}
+.nav-toggle{
+  position:fixed;left:268px;top:16px;z-index:101;
+  background:var(--bg-card);border:1px solid var(--border);color:#e2e8f0;
+  width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:1.2rem;
+  display:flex;align-items:center;justify-content:center;transition:left .3s
+}
+.nav-toggle.shifted{left:8px}
+
+/* ===== Main Content ===== */
+.main-content{margin-left:260px;transition:margin .3s}
+.main-content.expanded{margin-left:0}
+
+/* ===== Hero ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:80px 40px;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 50%,rgba(56,189,248,.12) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 30%,rgba(129,140,248,.10) 0%,transparent 60%),
+             radial-gradient(ellipse at 50% 80%,rgba(245,158,11,.06) 0%,transparent 60%)
+}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-badge{
+  display:inline-block;padding:6px 20px;border-radius:20px;
+  background:rgba(56,189,248,.15);color:var(--primary);font-size:.85rem;
+  border:1px solid rgba(56,189,248,.3);margin-bottom:24px
+}
+.hero h1{font-size:3.2rem;font-weight:800;margin-bottom:16px;line-height:1.2}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--primary),var(--primary2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-subtitle{font-size:1.15rem;color:#94a3b8;margin-bottom:32px;max-width:600px;margin-inline:auto}
+.hero-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--primary2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stat .label{font-size:.8rem;color:#64748b;margin-top:4px}
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  color:#64748b;animation:bounce 2s infinite
+}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+/* ===== Section Common ===== */
+.section{padding:80px 40px;max-width:1100px;margin:0 auto}
+.section-header{margin-bottom:48px}
+.section-num{
+  font-size:.8rem;color:var(--primary);letter-spacing:.15em;
+  text-transform:uppercase;margin-bottom:8px
+}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:12px}
+.section-desc{color:#94a3b8;font-size:1.05rem;max-width:700px}
+
+/* ===== Cards ===== */
+.card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;transition:all .3s
+}
+.card:hover{border-color:var(--primary);box-shadow:0 0 0 1px rgba(56,189,248,.2)}
+.card-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card-grid-2{grid-template-columns:repeat(auto-fit,minmax(400px,1fr))}
+
+/* ===== Quote Block ===== */
+.quote-block{
+  background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(129,140,248,.08));
+  border-left:4px solid var(--primary);padding:24px 28px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  margin:24px 0;font-size:1.05rem;font-style:italic;color:#cbd5e1
+}
+.quote-block strong{color:var(--primary);font-style:normal}
+
+/* ===== Flow / Diagram ===== */
+.flow-container{
+  display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;
+  padding:32px 0
+}
+.flow-node{
+  background:var(--bg-card2);border:2px solid var(--border);
+  border-radius:var(--radius);padding:20px 28px;text-align:center;
+  min-width:140px;position:relative
+}
+.flow-node.highlight{border-color:var(--primary);background:rgba(56,189,248,.1)}
+.flow-node .n-num{font-size:2rem;font-weight:800;color:var(--primary)}
+.flow-node .n-label{font-size:.85rem;color:#cbd5e1;margin-top:4px}
+.flow-arrow{
+  font-size:1.5rem;color:var(--primary);margin:0 4px;flex-shrink:0
+}
+.flow-arrow.down{transform:rotate(90deg)}
+.flow-arrow.up{transform:rotate(-90deg)}
+
+/* ===== Five-Step Loop (Ch2) ===== */
+.loop-diagram{
+  display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto auto;
+  gap:12px;max-width:700px;margin:0 auto;padding:24px
+}
+.loop-node{
+  background:var(--bg-card2);border:2px solid var(--border);border-radius:var(--radius);
+  padding:20px;text-align:center
+}
+.loop-node.active{border-color:var(--primary);box-shadow:0 0 20px rgba(56,189,248,.15)}
+.loop-node .step-num{font-size:.75rem;color:var(--primary);letter-spacing:.05em}
+.loop-node .step-title{font-size:1.1rem;font-weight:700;margin:6px 0}
+.loop-node .step-desc{font-size:.8rem;color:#94a3b8}
+.loop-arrow-h{display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.5rem}
+.loop-arrow-v{display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.5rem}
+
+/* ===== Six Variables Visual (Ch3) ===== */
+.variables-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
+.var-card{
+  background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;text-align:center;position:relative;overflow:hidden
+}
+.var-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px
+}
+.var-card.macro::before{background:linear-gradient(90deg,var(--primary),var(--primary2))}
+.var-card.micro::before{background:linear-gradient(90deg,var(--accent),var(--warning))}
+.var-card .var-icon{font-size:2rem;margin-bottom:10px}
+.var-card .var-num{font-size:.7rem;color:var(--primary);letter-spacing:.1em}
+.var-card .var-title{font-weight:700;font-size:1rem;margin:4px 0}
+.var-card .var-sub{font-size:.78rem;color:#94a3b8;margin-top:4px}
+.var-card.micro{grid-column:1/-1;text-align:left}
+.var-card.micro .var-details{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.var-card.micro .var-tag{
+  background:rgba(245,158,11,.15);color:var(--accent);
+  padding:4px 12px;border-radius:16px;font-size:.75rem
+}
+
+/* ===== SPO vs SSO (Ch4) ===== */
+.comparison-table{
+  display:grid;grid-template-columns:120px 1fr 1fr;gap:1px;background:var(--border);
+  border-radius:var(--radius);overflow:hidden;margin:24px 0
+}
+.comparison-table > *{background:var(--bg-card2);padding:16px 20px}
+.comparison-table .th{background:var(--bg-card);font-weight:700;color:var(--primary);font-size:.85rem}
+.comparison-table .spo-badge{color:var(--danger);font-weight:600}
+.comparison-table .sso-badge{color:var(--success);font-weight:600}
+
+/* ===== Three Stages (Ch5) ===== */
+.stages-timeline{
+  display:flex;align-items:stretch;gap:0;margin:32px 0;position:relative
+}
+.stage-block{
+  flex:1;background:var(--bg-card2);border:1px solid var(--border);padding:28px 20px;
+  text-align:center;position:relative
+}
+.stage-block:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+.stage-block:last-child{border-radius:0 var(--radius) var(--radius) 0}
+.stage-block .stage-num{
+  width:40px;height:40px;border-radius:50%;background:var(--primary);
+  color:#0f172a;display:inline-flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.1rem;margin-bottom:12px
+}
+.stage-block .stage-name{font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.stage-block .stage-arrow{font-size:.85rem;color:#94a3b8;margin-bottom:10px}
+.stage-block .stage-focus{font-size:.8rem;color:var(--accent)}
+.stage-connector{
+  display:flex;align-items:center;color:var(--primary);font-size:1.5rem;flex-shrink:0
+}
+
+/* ===== Four Roles (Ch6) ===== */
+.role-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.role-card{
+  background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;text-align:center;transition:all .3s;position:relative;overflow:hidden
+}
+.role-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px
+}
+.role-card.eb::after{background:var(--accent)}
+.role-card.tb::after{background:var(--primary)}
+.role-card.ub::after{background:var(--success)}
+.role-card.pb::after{background:var(--primary2)}
+.role-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.role-card .role-icon{font-size:2.8rem;margin-bottom:12px}
+.role-card .role-abbr{font-size:1.6rem;font-weight:800;color:var(--primary)}
+.role-card .role-full{font-size:.75rem;color:#64748b}
+.role-card .role-meta{font-size:.85rem;color:#94a3b8;margin-top:8px}
+.role-card .role-focus{font-size:.8rem;color:var(--accent);margin-top:8px;font-weight:600}
+
+/* ===== Role Interaction (Ch6) ===== */
+.role-interaction{
+  display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;
+  padding:24px;margin:24px 0
+}
+.role-inter-node{
+  background:var(--bg-card2);border:2px solid var(--border);border-radius:var(--radius);
+  padding:16px 24px;text-align:center
+}
+.role-inter-arrow{color:var(--danger);font-size:.85rem;font-weight:600;white-space:nowrap}
+
+/* ===== Result vs Win (Ch7) ===== */
+.duo-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.duo-card{
+  background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);padding:28px
+}
+.duo-card.result{border-top:4px solid var(--primary)}
+.duo-card.win{border-top:4px solid var(--accent)}
+.duo-card h4{font-size:1.2rem;margin-bottom:12px}
+.duo-card ul{list-style:none;padding:0}
+.duo-card li{padding:6px 0;font-size:.9rem;color:#cbd5e1}
+.duo-card li::before{content:'▸ ';color:var(--primary)}
+
+/* ===== Willingness Quadrant (Ch9) ===== */
+.quadrant{
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+  gap:2px;background:var(--border);max-width:600px;margin:24px auto;
+  border-radius:var(--radius);overflow:hidden
+}
+.quad-cell{
+  background:var(--bg-card2);padding:24px;text-align:center
+}
+.quad-cell .q-title{font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.quad-cell .q-desc{font-size:.8rem;color:#94a3b8}
+.quad-cell .q-strategy{font-size:.78rem;color:var(--accent);margin-top:8px;font-weight:600}
+.quad-axis-x{
+  text-align:center;color:#64748b;font-size:.8rem;padding:8px;
+  grid-column:1/-1
+}
+.quad-axis-y{
+  writing-mode:vertical-lr;color:#64748b;font-size:.8rem;text-align:center
+}
+
+/* ===== Football States (Ch11) ===== */
+.football-field{
+  background:linear-gradient(180deg,rgba(34,211,238,.05),rgba(34,211,238,.02));
+  border:2px solid var(--border);border-radius:var(--radius);
+  padding:32px;display:flex;justify-content:space-between;margin:24px 0;position:relative
+}
+.football-field::before{
+  content:'⚽ 攻方 →';position:absolute;top:-12px;left:50%;
+  transform:translateX(-50%);background:var(--bg-card);padding:2px 12px;
+  border-radius:10px;font-size:.75rem;color:var(--success)
+}
+.football-field::after{
+  content:'🛡️ 守方';position:absolute;bottom:-12px;left:50%;
+  transform:translateX(-50%);background:var(--bg-card);padding:2px 12px;
+  border-radius:10px;font-size:.75rem;color:var(--danger)
+}
+.fb-state{
+  text-align:center;padding:8px;position:relative
+}
+.fb-state .fb-icon{font-size:1.8rem}
+.fb-state .fb-name{font-size:.78rem;color:#cbd5e1;margin-top:4px}
+.fb-arrow{color:var(--primary);font-size:1.2rem}
+
+/* ===== Three Levels (Ch13) ===== */
+.levels-stack{
+  display:flex;flex-direction:column;gap:0;max-width:600px;margin:24px auto
+}
+.level-block{
+  padding:24px 28px;text-align:center;position:relative
+}
+.level-block.l3{background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(129,140,248,.15));border-radius:var(--radius) var(--radius) 0 0;border:1px solid var(--primary);z-index:3}
+.level-block.l2{background:rgba(56,189,248,.08);border:1px solid var(--border);border-top:none;z-index:2}
+.level-block.l1{background:rgba(56,189,248,.03);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius) var(--radius);z-index:1}
+.level-block .lv-num{font-size:.75rem;color:var(--primary);letter-spacing:.1em}
+.level-block .lv-title{font-size:1.15rem;font-weight:700;margin:4px 0}
+.level-block .lv-desc{font-size:.85rem;color:#94a3b8}
+
+/* ===== Appendix ===== */
+.appendix-grid{display:grid;gap:20px}
+.appendix-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px
+}
+.appendix-card h4{color:var(--primary);margin-bottom:12px;font-size:1rem}
+
+/* Checklist */
+.checklist{list-style:none}
+.checklist li{padding:6px 0;font-size:.9rem;color:#cbd5e1}
+.checklist li::before{content:'☐ ';color:var(--primary);margin-right:8px}
+
+/* Mini Table */
+.mini-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.mini-table th{background:rgba(56,189,248,.1);color:var(--primary);padding:10px 14px;text-align:left;font-weight:600}
+.mini-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cbd5e1}
+.mini-table tr:hover td{background:rgba(56,189,248,.03)}
+
+/* ===== Tag Pills ===== */
+.tag-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tag{
+  padding:4px 14px;border-radius:16px;font-size:.75rem;
+  border:1px solid var(--border);color:#94a3b8
+}
+.tag.hot{border-color:var(--danger);color:var(--danger);background:rgba(248,113,113,.08)}
+.tag.tip{border-color:var(--accent);color:var(--accent);background:rgba(245,158,11,.08)}
+
+/* ===== Error/Mindset Flip (App D) ===== */
+.flip-cards{display:grid;gap:12px}
+.flip-card{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;
+  background:var(--bg-card2);border-radius:var(--radius-sm);padding:14px 20px
+}
+.flip-card .wrong{color:var(--danger);font-size:.85rem;text-align:right}
+.flip-card .arrow-icon{color:var(--success);font-size:1.2rem}
+.flip-card .right{color:var(--success);font-size:.85rem}
+
+/* ===== Footer ===== */
+.footer{
+  text-align:center;padding:48px 40px;color:#64748b;font-size:.85rem;
+  border-top:1px solid var(--border);margin-top:80px
+}
+
+/* ===== Responsive ===== */
+@media(max-width:1024px){
+  .side-nav{transform:translateX(-100%)}
+  .side-nav.open{transform:translateX(0)}
+  .main-content{margin-left:0}
+  .nav-toggle{left:8px}
+  .hero h1{font-size:2.2rem}
+  .section{padding:48px 20px}
+  .variables-grid{grid-template-columns:1fr 1fr}
+  .duo-cards{grid-template-columns:1fr}
+  .stages-timeline{flex-direction:column}
+  .stage-connector{transform:rotate(90deg)}
+  .comparison-table{grid-template-columns:80px 1fr 1fr;font-size:.8rem}
+}
+@media(max-width:640px){
+  .hero h1{font-size:1.6rem}
+  .hero-stats{gap:20px}
+  .hero-stat .num{font-size:1.8rem}
+  .section-title{font-size:1.4rem}
+  .variables-grid{grid-template-columns:1fr}
+  .role-cards{grid-template-columns:1fr}
+  .loop-diagram{grid-template-columns:1fr 1fr}
+  .card-grid{grid-template-columns:1fr}
+  .card-grid-2{grid-template-columns:1fr}
+}
+
+/* ===== Animations ===== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.animate{animation:fadeUp .6s ease-out both}
+.animate-d1{animation-delay:.1s}
+.animate-d2{animation-delay:.2s}
+.animate-d3{animation-delay:.3s}
+.animate-d4{animation-delay:.4s}
+
+/* ===== Tooltip ===== */
+.tooltip{
+  position:relative;cursor:help;
+  border-bottom:1px dashed var(--primary)
+}
+.tooltip::after{
+  content:attr(data-tip);
+  position:absolute;bottom:120%;left:50%;transform:translateX(-50%);
+  background:var(--bg-card);color:#e2e8f0;padding:6px 12px;
+  border-radius:6px;font-size:.75rem;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+  border:1px solid var(--border)
+}
+.tooltip:hover::after{opacity:1}
+
+/* ===== Icon (emoji) sizing ===== */
+.emoji-lg{font-size:2.5rem}
+.emoji-md{font-size:1.5rem}
+</style>
+</head>
+<body>
+
+<!-- ==================== SIDE NAVIGATION ==================== -->
+<nav class="side-nav" id="sideNav">
+  <div class="nav-logo">
+    <h2>🎯 B2B策略销售</h2>
+    <span>新员工入职培训手册</span>
+  </div>
+  <div class="nav-section">核心概念</div>
+  <a href="#hero" class="nav-link active">🏠 总览</a>
+  <a href="#ch1" class="nav-link">第一章 · 策略销售本质</a>
+  <a href="#ch2" class="nav-link">第二章 · 五步法闭环</a>
+  <a href="#ch3" class="nav-link">第三章 · 六大变量分析</a>
+  <a href="#ch4" class="nav-link">第四章 · SPO vs SSO</a>
+  <div class="nav-section">深度模块</div>
+  <a href="#ch5" class="nav-link">第五章 · 采购流程三阶段</a>
+  <a href="#ch6" class="nav-link">第六章 · 四大决策角色</a>
+  <a href="#ch7" class="nav-link">第七章 · 组织利益与个人赢</a>
+  <a href="#ch8" class="nav-link">第八章 · 圈子与政治</a>
+  <a href="#ch9" class="nav-link">第九章 · 采购意愿四模式</a>
+  <div class="nav-section">实战应用</div>
+  <a href="#ch10" class="nav-link">第十章 · 竞争位置对策</a>
+  <a href="#ch11" class="nav-link">第十一章 · 足球策略定位</a>
+  <a href="#ch12" class="nav-link">第十二章 · 四大策略绝招</a>
+  <a href="#ch13" class="nav-link">第十三章 · 反馈与境界</a>
+  <div class="nav-section">附录工具</div>
+  <a href="#appendix" class="nav-link">📖 实用工具卡</a>
+</nav>
+<button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰</button>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="main-content" id="mainContent">
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📋 基于崔建中策略销售课程整理</div>
+    <h1>从<span class="gradient">前线士兵</span><br>升级为<span class="gradient">战场指挥官</span></h1>
+    <p class="hero-subtitle">
+      策略销售不是销售策略的集合，而是<strong style="color:var(--primary)">批量生产销售策略的方法论</strong>。
+      它教会你如何针对每一个独一无二的大订单，因地制宜地找出致胜招数。
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">13</div><div class="label">系统章节</div></div>
+      <div class="hero-stat"><div class="num">5步</div><div class="label">核心闭环</div></div>
+      <div class="hero-stat"><div class="num">6大</div><div class="label">分析变量</div></div>
+      <div class="hero-stat"><div class="num">4种</div><div class="label">决策角色</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll">▼ 开始学习</div>
+</section>
+
+<!-- ===== CH1: Strategy Sales Essence ===== -->
+<section class="section" id="ch1">
+  <div class="section-header animate">
+    <div class="section-num">第一章</div>
+    <div class="section-title">策略销售的本质</div>
+    <div class="section-desc">理解大单的核心特征与策略思维的必要性</div>
+  </div>
+
+  <div class="card-grid animate animate-d1">
+    <div class="card">
+      <div style="font-size:2rem;margin-bottom:12px">🎯</div>
+      <h4 style="color:var(--primary)">什么是策略销售</h4>
+      <p style="color:#cbd5e1;font-size:.9rem">
+        研究<strong>大订单/大合同</strong>如何做赢的方法论。"大"不是绝对金额，
+        而是金额带来的核心特征——<strong style="color:var(--accent)">决策人多</strong>。钱越多，参与决策的人越多，博弈就越复杂。
+      </p>
+    </div>
+    <div class="card">
+      <div style="font-size:2rem;margin-bottom:12px">📈</div>
+      <h4 style="color:var(--primary)">核心使命</h4>
+      <p style="color:#cbd5e1;font-size:.9rem">
+        <strong style="color:var(--accent);font-size:1.2rem">大幅提升赢单率</strong><br>
+        增加商机数量（大单数量有限，难持续）<br>
+        <span style="color:var(--success)">✓ 提高转化率</span>（策略销售的核心发力点）
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:32px 0" class="animate animate-d2">
+    <h4 style="color:#94a3b8;margin-bottom:20px">📐 大单的三个核心特征</h4>
+    <div style="display:inline-flex;flex-direction:column;align-items:center;gap:8px;
+      background:var(--bg-card2);padding:28px 40px;border-radius:var(--radius);border:1px solid var(--border)">
+      <div style="font-weight:700;color:var(--accent)">💰 金额大</div>
+      <div style="color:var(--primary)">↓</div>
+      <div style="font-weight:700;color:var(--accent)">👥 决策人多 → 争夺话语权 → 博弈展开</div>
+      <div style="color:var(--primary)">↓</div>
+      <div style="color:#cbd5e1">⏳ 项目周期长</div>
+      <div style="color:var(--primary)">↓</div>
+      <div style="color:#cbd5e1">🧩 产品极复杂</div>
+      <div style="color:var(--primary)">↓</div>
+      <div style="color:#cbd5e1">⚔️ 竞争对手多</div>
+      <div style="color:var(--primary)">↓</div>
+      <div style="background:var(--danger);color:#fff;padding:6px 24px;border-radius:20px;font-weight:700">
+        ⚡ 结果：变化
+      </div>
+    </div>
+  </div>
+
+  <div class="card animate animate-d3" style="max-width:600px;margin:0 auto;text-align:center">
+    <h4 style="color:var(--primary)">两种销售能力</h4>
+    <div style="display:flex;gap:20px;margin-top:16px;justify-content:center;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px;background:var(--bg-card);padding:16px;border-radius:var(--radius-sm)">
+        <div class="emoji-lg">⚔️</div>
+        <strong>基础技能</strong>
+        <p style="font-size:.8rem;color:#94a3b8">前线拼刺刀<br>拜访沟通、产品知识、谈判</p>
+      </div>
+      <div style="color:var(--primary);font-size:2rem;align-self:center">→</div>
+      <div style="flex:1;min-width:200px;background:rgba(56,189,248,.1);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--primary)">
+        <div class="emoji-lg">🎖️</div>
+        <strong style="color:var(--primary)">策略能力</strong>
+        <p style="font-size:.8rem;color:#94a3b8">指挥部指挥<br>分析战场、制定策略、调动资源</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CH2: Five-Step Loop ===== -->
+<section class="section" id="ch2">
+  <div class="section-header animate">
+    <div class="section-num">第二章</div>
+    <div class="section-title">五步法闭环模型</div>
+    <div class="section-desc">这是本方法论的<strong style="color:var(--primary)">核心操作系统</strong>。所有分析、策略都围绕这个闭环展开。</div>
+  </div>
+
+  <!-- Loop Diagram -->
+  <div class="animate animate-d1" style="display:flex;justify-content:center;padding:20px 0 30px">
+    <div style="display:grid;grid-template-columns:auto auto auto;grid-template-rows:auto auto auto;gap:0;align-items:center;justify-items:center">
+      <!-- Row 1 -->
+      <div style="background:linear-gradient(135deg,var(--primary),var(--primary2));color:#0f172a;border-radius:var(--radius);padding:20px 28px;text-align:center;font-weight:700;min-width:150px">
+        <div style="font-size:.7rem;opacity:.7">第一步</div>
+        <div style="font-size:1.15rem">🔍 搜集信息</div>
+        <div style="font-size:.7rem;opacity:.7;margin-top:4px">全面检查订单信息</div>
+      </div>
+      <div style="font-size:2rem;color:var(--primary);padding:0 4px">⇄</div>
+      <div style="background:var(--bg-card2);border:2px solid var(--primary);border-radius:var(--radius);padding:20px 28px;text-align:center;min-width:150px">
+        <div style="font-size:.7rem;color:var(--primary)">第五步</div>
+        <div style="font-size:1.15rem;font-weight:700">🔄 反馈</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:4px">验证效果，持续循环</div>
+      </div>
+      <!-- Row 2 -->
+      <div style="font-size:2rem;color:var(--primary)">↓</div>
+      <div></div>
+      <div style="font-size:2rem;color:var(--primary)">↑</div>
+      <!-- Row 3 -->
+      <div style="background:var(--bg-card2);border:2px solid var(--border);border-radius:var(--radius);padding:20px 28px;text-align:center;min-width:150px">
+        <div style="font-size:.7rem;color:var(--primary)">第二步</div>
+        <div style="font-size:1.15rem;font-weight:700">🔬 找到风险与优势</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:4px">风险=丢单隐患(病) | 优势=赢单筹码(药)</div>
+      </div>
+      <div></div>
+      <div style="font-size:2rem;color:var(--primary)">↑</div>
+      <!-- Row 4 -->
+      <div style="font-size:2rem;color:var(--primary)">↓</div>
+      <div></div>
+      <div style="background:var(--bg-card2);border:2px solid var(--border);border-radius:var(--radius);padding:20px 28px;text-align:center;min-width:150px">
+        <div style="font-size:.7rem;color:var(--primary)">第四步</div>
+        <div style="font-size:1.15rem;font-weight:700">⚡ 执行策略</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:4px">落实为具体行动</div>
+      </div>
+      <!-- Row 5 -->
+      <div style="background:var(--bg-card2);border:2px solid var(--border);border-radius:var(--radius);padding:20px 28px;text-align:center;min-width:150px">
+        <div style="font-size:.7rem;color:var(--primary)">第三步</div>
+        <div style="font-size:1.15rem;font-weight:700">🧠 制定策略</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:4px">针对风险用优势制定方案</div>
+      </div>
+      <div style="font-size:2rem;color:var(--primary)">→</div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="quote-block animate animate-d2">
+    🩺 <strong>核心比喻：每日体检</strong><br>
+    一个人想活到100岁，最靠谱的办法是<strong>每天全面体检一次</strong>。
+    大病都是从小病发展来的，小病好治，大病难治。每天/每周用模型对你的订单做一次"体检"，在问题萌芽期就解决它。
+  </div>
+
+  <div class="card-grid animate animate-d3">
+    <div class="card">
+      <h4 style="color:var(--success);margin-bottom:8px">🔬 第二步详解：风险与优势</h4>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:150px">
+          <strong style="color:var(--danger)">⚠️ 风险（丢单隐患）</strong>
+          <ul style="list-style:none;padding:0;margin-top:8px;font-size:.85rem;color:#cbd5e1">
+            <li>• 客户老板反对</li><li>• 方案不匹配</li><li>• 价格太高</li><li>• 竞争对手领先</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:150px">
+          <strong style="color:var(--success)">✅ 优势（赢单筹码）</strong>
+          <ul style="list-style:none;padding:0;margin-top:8px;font-size:.85rem;color:#cbd5e1">
+            <li>• 客户老板支持</li><li>• 方案非常匹配</li><li>• 价格合适</li><li>• 竞争对手落后</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--accent);margin-bottom:8px">💡 策略示例</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        <span style="color:var(--danger)">风险：</span>核心技术人员反对我们<br>
+        <span style="color:var(--success)">优势：</span>部门经理支持我们<br>
+        <span style="color:var(--accent)">策略：</span>请部门经理吃饭，让技术人员也参加，席间经理公开表态支持
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CH3: Six Variables ===== -->
+<section class="section" id="ch3">
+  <div class="section-header animate">
+    <div class="section-num">第三章</div>
+    <div class="section-title">六大变量 · 蓝表分析</div>
+    <div class="section-desc">蓝表（The Blue Sheet）是策略销售的<strong style="color:var(--primary)">"战场地图"</strong>，把一个订单分解为六个核心构成变量。</div>
+  </div>
+
+  <div class="variables-grid animate animate-d1">
+    <div class="var-card macro">
+      <div class="var-icon">⭐</div>
+      <div class="var-num">变量一</div>
+      <div class="var-title">理想订单</div>
+      <div class="var-sub">该不该做这个单子<br><span style="color:var(--accent)">核心标准：单位时间回款最多</span></div>
+    </div>
+    <div class="var-card macro">
+      <div class="var-icon">♟️</div>
+      <div class="var-num">变量二</div>
+      <div class="var-title">我方资源</div>
+      <div class="var-sub">如何排兵布阵<br><span style="color:var(--accent)">铁三角：AR+SR+FR</span></div>
+    </div>
+    <div class="var-card macro">
+      <div class="var-icon">🎯</div>
+      <div class="var-num">变量三</div>
+      <div class="var-title">SPO单一采购目标</div>
+      <div class="var-sub">战场怎么布置<br><span style="color:var(--accent)">范围/方案/预算/日期</span></div>
+    </div>
+    <div class="var-card macro">
+      <div class="var-icon">⚔️</div>
+      <div class="var-num">变量四</div>
+      <div class="var-title">竞争对手</div>
+      <div class="var-sub">深度研究，压制对手<br><span style="color:var(--accent)">四种竞争形式</span></div>
+    </div>
+    <div class="var-card macro">
+      <div class="var-icon">📋</div>
+      <div class="var-num">变量五</div>
+      <div class="var-title">采购流程</div>
+      <div class="var-sub">控制节奏，引导客户<br><span style="color:var(--accent)">三阶段模型</span></div>
+    </div>
+    <div class="var-card micro">
+      <div class="var-icon">👥</div>
+      <div class="var-num">变量六（微观·最复杂）</div>
+      <div class="var-title">采购影响者</div>
+      <div class="var-sub">决策人深度分析</div>
+      <div class="var-details">
+        <span class="var-tag">采购角色</span><span class="var-tag">影响程度</span><span class="var-tag">覆盖程度</span>
+        <span class="var-tag">组织利益</span><span class="var-tag">个人利益</span><span class="var-tag">圈子</span>
+        <span class="var-tag">采购意愿</span><span class="var-tag">支持度</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card animate animate-d2" style="margin-top:24px">
+    <h4 style="color:var(--primary);margin-bottom:12px">🛡️ 铁三角团队架构</h4>
+    <table class="mini-table">
+      <thead><tr><th>角色</th><th>职务</th><th>职责</th><th>主攻对象</th></tr></thead>
+      <tbody>
+        <tr><td>🅰</td><td>客户经理/销售经理</td><td>搞定客户大老板</td><td style="color:var(--accent)">EB</td></tr>
+        <tr><td>🅱</td><td>方案经理/售前顾问</td><td>搞定技术人员</td><td style="color:var(--primary)">TB</td></tr>
+        <tr><td>🅲</td><td>交付经理</td><td>搞定使用部门</td><td style="color:var(--success)">UB</td></tr>
+      </tbody>
+    </table>
+    <div class="quote-block" style="margin:16px 0 0;font-size:.9rem">
+      <strong>我们一群人殴客户方一个</strong>，而不是总让自己去跟客户老板单挑。
+    </div>
+  </div>
+</section>
+
+<!-- ===== CH4: SPO vs SSO ===== -->
+<section class="section" id="ch4">
+  <div class="section-header animate">
+    <div class="section-num">第四章</div>
+    <div class="section-title">SPO vs SSO · 主动控盘</div>
+    <div class="section-desc">最具革命性的思维转换——<strong style="color:var(--accent)">从被动满足客户，到主动引导客户</strong></div>
+  </div>
+
+  <div class="comparison-table animate animate-d1">
+    <div class="th">维度</div><div class="th"><span class="spo-badge">SPO（客户想）</span></div><div class="th"><span class="sso-badge">SSO（销售想）</span></div>
+    <div>范围</div><div>买给谁？</div><div style="color:var(--success)">卖给谁？</div>
+    <div>方案</div><div>买什么？</div><div style="color:var(--success)">卖什么？</div>
+    <div>价格</div><div>花多少钱？</div><div style="color:var(--success)">多少钱卖？</div>
+    <div>时间</div><div>什么时候买？</div><div style="color:var(--success)">什么时候卖？</div>
+  </div>
+
+  <div class="quote-block animate animate-d2">
+    🎯 <strong>核心差异</strong>：SPO是客户的主场，SSO是我们的主场。<br>
+    策略的本质是<strong>让客户的SPO向我们的SSO靠拢</strong>。
+  </div>
+
+  <div class="card-grid animate animate-d3">
+    <div class="card">
+      <h4 style="color:var(--primary);margin-bottom:8px">① 决定后续运作方向</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">10亿大工程，确定SSO为大堂装修→主攻大楼老板；确定SSO为厨房装修→主攻大厨师。<strong>SSO决定了未来2-3年怎么打。</strong></p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--primary);margin-bottom:8px">② 创造竞争优势</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">客户SPO里没有财务模块，但你的SSO规划了→说服加入→你们财务全国第一→<strong>财务部门自然支持你</strong></p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--primary);margin-bottom:8px">③ 学会坚持与舍弃</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">客户SPO里某个边缘模块，你SSO不打算卖→<strong>前期不必浪费时间</strong></p>
+    </div>
+  </div>
+
+  <div class="flip-cards animate animate-d4" style="margin-top:24px">
+    <div class="flip-card"><span class="wrong">"客户要什么，我满足什么"</span><span class="arrow-icon">→</span><span class="right">"如何引导客户要我能赢的"</span></div>
+    <div class="flip-card"><span class="wrong">在对手布置的主战场硬打</span><span class="arrow-icon">→</span><span class="right">换个对我方有利的山头开战</span></div>
+    <div class="flip-card"><span class="wrong">盲目妥协满足</span><span class="arrow-icon">→</span><span class="right">以我为主，双赢引导</span></div>
+  </div>
+</section>
+
+<!-- ===== CH5: Three Stages ===== -->
+<section class="section" id="ch5">
+  <div class="section-header animate">
+    <div class="section-num">第五章</div>
+    <div class="section-title">采购流程三阶段</div>
+    <div class="section-desc">采购流程是隐藏在蓝表底下的<strong style="color:var(--primary)">"暗能量"</strong>。客户怎么买，你就怎么卖。</div>
+  </div>
+
+  <div class="stages-timeline animate animate-d1">
+    <div class="stage-block">
+      <div class="stage-num">1</div>
+      <div class="stage-name">需求形成</div>
+      <div class="stage-arrow">从不买到买</div>
+      <div class="stage-focus">重视：核心需求、预算范围</div>
+      <div style="margin-top:12px;background:rgba(56,189,248,.1);padding:10px;border-radius:8px;font-size:.8rem">
+        <strong style="color:var(--primary)">策略：</strong>高筑墙 广积粮 缓称王
+      </div>
+    </div>
+    <div class="stage-connector">→</div>
+    <div class="stage-block">
+      <div class="stage-num">2</div>
+      <div class="stage-name">方案评估</div>
+      <div class="stage-arrow">对比选择</div>
+      <div class="stage-focus">重视：产品方案对比、功能匹配</div>
+      <div style="margin-top:12px;background:rgba(56,189,248,.1);padding:10px;border-radius:8px;font-size:.8rem">
+        <strong style="color:var(--primary)">策略：</strong>标准与评分设计
+      </div>
+    </div>
+    <div class="stage-connector">→</div>
+    <div class="stage-block">
+      <div class="stage-num">3</div>
+      <div class="stage-name">采购决策</div>
+      <div class="stage-arrow">谈判拍板</div>
+      <div class="stage-focus">重视：价格、条款、售后服务</div>
+      <div style="margin-top:12px;background:rgba(56,189,248,.1);padding:10px;border-radius:8px;font-size:.8rem">
+        <strong style="color:var(--primary)">策略：</strong>谈判与疑虑处理
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:16px 0;color:#64748b;font-size:.85rem" class="animate animate-d2">
+    ⏱️ 需求形成：几个月 → 方案评估：几周~几个月 → 采购决策：20分钟~几天
+  </div>
+
+  <div class="quote-block animate animate-d2">
+    📌 <strong>阶段不均衡规律</strong>：越往后推进速度越快。<br>
+    如果你进去晚了处于落后，<strong>唯一的生路是：用尽一切手段把客户拉回需求形成阶段</strong>。
+  </div>
+
+  <div class="card-grid animate animate-d3">
+    <div class="card" style="border-top:4px solid var(--success)">
+      <h4 style="color:var(--success)">🟢 领先时</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        握紧三颗子弹：产品优势、价格打折、老板出面<br>
+        <strong style="color:var(--accent)">别早期就把子弹打光</strong>
+      </p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--danger)">
+      <h4 style="color:var(--danger)">🔴 落后时</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        不要证明产品好<br>
+        <strong style="color:var(--accent)">想办法拉回需求形成阶段</strong>，重新定义需求
+      </p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--primary)">
+      <h4 style="color:var(--primary)">🟡 一致时</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        拼执行，加快节奏
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CH6: Four Decision Roles ===== -->
+<section class="section" id="ch6">
+  <div class="section-header animate">
+    <div class="section-num">第六章</div>
+    <div class="section-title">四大决策角色（EB/TB/UB/PB）</div>
+    <div class="section-desc">大订单是<strong style="color:var(--primary)">集体决策</strong>。不同角色关注不同问题，需要用不同方式攻略。</div>
+  </div>
+
+  <div class="role-cards animate animate-d1">
+    <div class="role-card eb">
+      <div class="role-icon">🏦</div>
+      <div class="role-abbr">EB</div>
+      <div class="role-full">Economic Buyer · 经济采购影响者</div>
+      <div class="role-meta">比喻：出钱的公公</div>
+      <div class="role-focus">核心关注：投产比、KPI、风险</div>
+      <p style="font-size:.78rem;color:#94a3b8;margin-top:8px">
+        老板买的是<strong style="color:var(--accent)">生产资料</strong><br>
+        最喜欢：少花钱办大事
+      </p>
+    </div>
+    <div class="role-card tb">
+      <div class="role-icon">🔧</div>
+      <div class="role-abbr">TB</div>
+      <div class="role-full">Technical Buyer · 技术采购影响者</div>
+      <div class="role-meta">比喻：看结构的姐夫</div>
+      <div class="role-focus">核心关注：参数、标准、技术风险</div>
+      <p style="font-size:.78rem;color:#94a3b8;margin-top:8px">
+        <strong style="color:var(--danger)">点头不算摇头算</strong><br>
+        一票否决权
+      </p>
+    </div>
+    <div class="role-card ub">
+      <div class="role-icon">🏠</div>
+      <div class="role-abbr">UB</div>
+      <div class="role-full">User Buyer · 使用采购影响者</div>
+      <div class="role-meta">比喻：实际住的夫妻</div>
+      <div class="role-focus">核心关注：好不好用、省不省心</div>
+      <p style="font-size:.78rem;color:#94a3b8;margin-top:8px">
+        是<strong style="color:var(--success)">杀死TB的最佳武器</strong><br>
+        多个业务部门合力谈业务利益
+      </p>
+    </div>
+    <div class="role-card pb">
+      <div class="role-icon">📋</div>
+      <div class="role-abbr">PB</div>
+      <div class="role-full">Process Buyer · 程序采购影响者</div>
+      <div class="role-meta">比喻：制定看房清单的岳母</div>
+      <div class="role-focus">核心关注：流程合规、不出事</div>
+      <p style="font-size:.78rem;color:#94a3b8;margin-top:8px">
+        极度重视<strong style="color:var(--primary2)">合规安全</strong><br>
+        微信响应速度必须秒回
+      </p>
+    </div>
+  </div>
+
+  <div class="animate animate-d2" style="margin-top:32px">
+    <h4 style="text-align:center;color:#94a3b8;margin-bottom:16px">🔄 角色相生相克关系</h4>
+    <div class="role-interaction">
+      <div class="role-inter-node">🔧 TB（技术）</div>
+      <div class="role-inter-arrow">── 制约 ──→</div>
+      <div class="role-inter-node">🏦 EB（老板）</div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:80px;margin-top:8px">
+      <div style="font-size:.8rem;color:var(--primary)">↑ 能被UB推翻</div>
+      <div style="font-size:.8rem;color:var(--primary2)">↓ PB怕EB</div>
+    </div>
+    <div class="role-interaction" style="margin-top:8px">
+      <div class="role-inter-node">🏠 UB（业务）</div>
+      <div></div>
+      <div class="role-inter-node">📋 PB（程序）</div>
+    </div>
+  </div>
+
+  <div class="card-grid animate animate-d3" style="margin-top:24px">
+    <div class="card">
+      <h4 style="color:var(--accent)">💡 搞定EB的核心</h4>
+      <ol style="font-size:.85rem;color:#cbd5e1;padding-left:20px">
+        <li>深度了解老板的战略与目标</li>
+        <li>谈你的方案如何帮他实现企业目标</li>
+        <li><strong style="color:var(--accent)">拉高他的目标</strong>——目标越高，漏洞越大，越好卖</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--primary)">🔑 神奇的一：给老板算账</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        找一个微小增值点（一天省1块钱）<br>
+        → 时间扩展（一天→三年）<br>
+        → 空间扩展（一锅→200家店）<br>
+        → <strong style="color:var(--accent)">算出几千万的具体数字</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CH7: Result & Win ===== -->
+<section class="section" id="ch7">
+  <div class="section-header animate">
+    <div class="section-num">第七章</div>
+    <div class="section-title">组织利益与个人"赢"</div>
+    <div class="section-desc">一个人支持你，最核心的原因：你既满足了他的<strong style="color:var(--primary)">组织利益</strong>，又满足了他的<strong style="color:var(--accent)">个人利益</strong>。</div>
+  </div>
+
+  <div class="duo-cards animate animate-d1">
+    <div class="duo-card result">
+      <h4 style="color:var(--primary)">📊 结果 · 组织利益 (Business Win)</h4>
+      <p style="font-size:.85rem;color:#94a3b8;margin-bottom:12px">
+        <strong>电钻原理：</strong>客户买的不是电钻，是墙上那个孔。人们买任何产品，最终买的是产品带来的<strong style="color:var(--primary)">结果</strong>。
+      </p>
+      <ul>
+        <li><strong>多</strong> — 产量、效率</li>
+        <li><strong>快</strong> — 速度、周期</li>
+        <li><strong>好</strong> — 质量、品质</li>
+        <li><strong>省</strong> — 成本、费用</li>
+      </ul>
+    </div>
+    <div class="duo-card win">
+      <h4 style="color:var(--accent)">🏆 赢 · 个人利益 (Personal Win)</h4>
+      <p style="font-size:.85rem;color:#94a3b8;margin-bottom:12px">
+        个人利益 = <strong style="color:var(--accent)">内心驱动力</strong>（力量的力）<br>
+        ❌ 不是回扣 &nbsp; ❌ 不是经济利益<br>
+        ✅ 是采购影响者希望通过本次采购实现的<strong style="color:var(--accent)">内心欲望</strong>
+      </p>
+      <p style="font-size:.8rem;color:#94a3b8">
+        <strong style="color:var(--accent)">案例：</strong>高校老师评不上职称因为论文少→仪器化验结果在高端期刊容易发表=帮他发论文。比给2万回扣管用100倍。
+      </p>
+    </div>
+  </div>
+
+  <div class="card animate animate-d2" style="margin-top:20px">
+    <h4 style="color:var(--danger);margin-bottom:12px">⚠️ 挖掘个人赢的三大误区</h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+      <div style="background:var(--bg-card);padding:16px;border-radius:var(--radius-sm);border-left:3px solid var(--danger)">
+        <strong>误区一：瞎猜</strong>
+        <p style="font-size:.8rem;color:#94a3b8;margin-top:6px">鸡过马路有100种可能，这一次只有1种真实原因。✅ 去问鸡！</p>
+      </div>
+      <div style="background:var(--bg-card);padding:16px;border-radius:var(--radius-sm);border-left:3px solid var(--danger)">
+        <strong>误区二：用结果代替赢</strong>
+        <p style="font-size:.8rem;color:#94a3b8;margin-top:6px">财务软件降低工作量≠会计支持——她可能失业。好的结果不一定带来个人赢。</p>
+      </div>
+      <div style="background:var(--bg-card);padding:16px;border-radius:var(--radius-sm);border-left:3px solid var(--danger)">
+        <strong>误区三：用自己的赢代替客户的赢</strong>
+        <p style="font-size:.8rem;color:#94a3b8;margin-top:6px">"我喜欢跑马拉松，带客户跑"——己所甚欲，勿施于人。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block animate animate-d3">
+    🎯 <strong>销售的核心定义：</strong>给客户一个好的结果，并满足每个采购影响者个人的赢。
+  </div>
+</section>
+
+<!-- ===== CH8: Circles ===== -->
+<section class="section" id="ch8">
+  <div class="section-header animate">
+    <div class="section-num">第八章</div>
+    <div class="section-title">圈子与政治结构</div>
+    <div class="section-desc">利用组织内力，但<strong style="color:var(--danger)">绝对不要去站队</strong></div>
+  </div>
+
+  <div class="card-grid animate animate-d1">
+    <div class="card" style="text-align:center">
+      <div class="emoji-lg">🧑‍💼</div>
+      <h4 style="color:var(--primary)">圈主</h4>
+      <p style="font-size:.85rem;color:#94a3b8">圈子的核心人物</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="emoji-lg">👥</div>
+      <h4 style="color:var(--primary)">追随者</h4>
+      <p style="font-size:.85rem;color:#94a3b8">圈内人，高度信任</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="emoji-lg">🚪</div>
+      <h4 style="color:var(--primary)">圈外人</h4>
+      <p style="font-size:.85rem;color:#94a3b8">未进入核心圈层</p>
+    </div>
+  </div>
+
+  <div class="animate animate-d2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px">
+    <div class="card" style="border-top:4px solid var(--success)">
+      <h4 style="color:var(--success)">✅ 正确用法</h4>
+      <ul style="font-size:.85rem;color:#cbd5e1;padding-left:20px">
+        <li>利用圈子进行<strong>信用借力</strong></li>
+        <li>满足不了核心决策人，就满足他圈子里的至交</li>
+        <li>等于在圈子里存了一笔人情债</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top:4px solid var(--danger)">
+      <h4 style="color:var(--danger)">❌ 错误示范</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        调料厂销售介入马路边边串串香副总和大老板的矛盾→<strong>被当场辞退</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="card animate animate-d3" style="margin-top:20px">
+    <h4 style="color:var(--accent)">📈 "向上靠"策略</h4>
+    <p style="font-size:.9rem;color:#cbd5e1">
+      帮圈内人提供能向圈主<strong style="color:var(--accent)">表功的政绩材料</strong>。越大的领导越需要政绩。
+      思考你的产品价值如何分解成为符合领导考核指标的政绩汇报材料。
+    </p>
+  </div>
+</section>
+
+<!-- ===== CH9: Willingness ===== -->
+<section class="section" id="ch9">
+  <div class="section-header animate">
+    <div class="section-num">第九章</div>
+    <div class="section-title">采购意愿四模式</div>
+    <div class="section-desc">转化客户购买意愿——<strong style="color:var(--primary)">趋利避害，避害优先</strong></div>
+  </div>
+
+  <!-- Quadrant -->
+  <div class="animate animate-d1" style="display:flex;justify-content:center;align-items:stretch;gap:0;padding:20px 0">
+    <div style="display:flex;flex-direction:column;justify-content:space-between;color:#64748b;font-size:.75rem;padding:8px 4px;text-align:center">
+      <span>期望高 ↑</span><span>期望低 ↓</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;
+      background:var(--border);border-radius:var(--radius);overflow:hidden;max-width:550px;flex:1">
+      <div style="background:var(--bg-card2);padding:24px;text-align:center">
+        <div style="font-size:1.5rem">🚀</div>
+        <div style="font-weight:700;color:var(--success);margin:6px 0">驱力/立功模式</div>
+        <div style="font-size:.78rem;color:#94a3b8">没病也吃药<br>主动寻求改善，关注机会</div>
+        <div style="font-size:.75rem;color:var(--accent);margin-top:8px;font-weight:600">对策：广泛展示机会点</div>
+      </div>
+      <div style="background:var(--bg-card2);padding:24px;text-align:center">
+        <div style="font-size:1.5rem">😎</div>
+        <div style="font-weight:700;color:var(--warning);margin:6px 0">自满模式</div>
+        <div style="font-size:.78rem;color:#94a3b8">认为自己身体倍棒<br>现状>期望，极度傲慢</div>
+        <div style="font-size:.75rem;color:var(--accent);margin-top:8px;font-weight:600">对策：等待时机</div>
+      </div>
+      <div style="background:var(--bg-card2);padding:24px;text-align:center">
+        <div style="font-size:1.5rem">🤒</div>
+        <div style="font-weight:700;color:var(--danger);margin:6px 0">避害模式</div>
+        <div style="font-size:.78rem;color:#94a3b8">有病才吃药<br>遇到严重问题，急求解决</div>
+        <div style="font-size:.75rem;color:var(--accent);margin-top:8px;font-weight:600">对策：直击核心问题</div>
+      </div>
+      <div style="background:var(--bg-card2);padding:24px;text-align:center">
+        <div style="font-size:1.5rem">😴</div>
+        <div style="font-weight:700;color:#64748b;margin:6px 0">安稳模式</div>
+        <div style="font-size:.78rem;color:#94a3b8">有病拖着不看<br>现状=期望，抗拒改变</div>
+        <div style="font-size:.75rem;color:var(--accent);margin-top:8px;font-weight:600">对策：组织内力推动</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;color:#64748b;font-size:.75rem">← 现实低 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 现实高 →</div>
+
+  <div class="quote-block animate animate-d2">
+    ⚡ <strong>核心规律：趋利避害</strong><br>
+    当一个人同时表现出驱力和避害时，他一定是<strong>避害优先</strong>。<br>
+    一个人在地上打滚肚子疼时，你跟他谈未来三年的健身计划——他只会让你滚。
+  </div>
+
+  <div class="card animate animate-d3">
+    <h4 style="color:var(--primary)">📖 经典案例：Bridge如何转化张瑞敏</h4>
+    <p style="font-size:.9rem;color:#cbd5e1;margin-top:8px">
+      海尔是用友竞争对手的铁杆客户。用友CEO Bridge约见张瑞敏：<br>
+      <strong style="color:var(--accent)">不谈软件，谈家事</strong>——女儿在美国买海尔冰箱的经历<br>
+      问："海尔总部知道客户高不高兴吗？'以客户为中心'的数据从哪来？"<br>
+      <strong style="color:var(--accent)">一脚把张瑞敏从安稳的岸上踹进了避害的河里</strong><br>
+      结果：当场拍板花1000多万买用友新系统
+    </p>
+  </div>
+</section>
+
+<!-- ===== CH10: Competition ===== -->
+<section class="section" id="ch10">
+  <div class="section-header animate">
+    <div class="section-num">第十章</div>
+    <div class="section-title">竞争位置与对策</div>
+    <div class="section-desc">领先时怎么打，落后时怎么救</div>
+  </div>
+
+  <div class="card-grid animate animate-d1">
+    <div class="card" style="border-top:4px solid var(--success)">
+      <h4 style="color:var(--success)">🟢 领先的信号</h4>
+      <ul style="font-size:.85rem;color:#cbd5e1;padding-left:20px">
+        <li>你的SSO在引导客户</li>
+        <li>你能见到大老板</li>
+        <li>客户问得多、问得深</li>
+        <li>正常谈价</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top:4px solid var(--danger)">
+      <h4 style="color:var(--danger)">🔴 落后的信号</h4>
+      <ul style="font-size:.85rem;color:#cbd5e1;padding-left:20px">
+        <li>客户SPO被对手预设</li>
+        <li>只见第一候选人</li>
+        <li>程序性应付</li>
+        <li>往死里压价</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-grid animate animate-d2" style="margin-top:16px">
+    <div class="card" style="border-left:4px solid var(--success)">
+      <h4 style="color:var(--success)">领先策略：三颗子弹</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        🔫 产品优势 &nbsp; 🔫 价格打折 &nbsp; 🔫 老板出面<br>
+        <strong style="color:var(--accent)">别早期就打光！</strong>追求状态：<strong>制流</strong>——由你来引导整个流程
+      </p>
+    </div>
+    <div class="card" style="border-left:4px solid var(--danger)">
+      <h4 style="color:var(--danger)">落后策略：往回拉</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        ① 不要一味证明产品好<br>
+        ② <strong style="color:var(--accent)">改赛道</strong>：改SSO和SPO<br>
+        ③ 重新挖掘领导隐藏需求<br>
+        ④ <strong style="color:var(--accent)">高举高打</strong>：和老板政绩、战略挂钩
+      </p>
+    </div>
+  </div>
+
+  <div class="card animate animate-d3" style="margin-top:16px">
+    <h4 style="color:var(--accent)">🃏 反套路谈价技巧</h4>
+    <p style="font-size:.9rem;color:#cbd5e1">
+      知道自己是第二候选人，客户找你来谈价——<br>
+      <strong>"价格是不是我们合作的唯一条件？如果还有别的事，先处理别的事，价格先不谈。"</strong><br>
+      <span style="color:#94a3b8">（因为他拿你的低价去压第一家）</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===== CH11: Football Strategy ===== -->
+<section class="section" id="ch11">
+  <div class="section-header animate">
+    <div class="section-num">第十一章</div>
+    <div class="section-title">足球策略与十大状态定位</div>
+    <div class="section-desc">大单运作就像<strong style="color:var(--primary)">踢足球</strong>——没有固定流程，每一脚都是根据场上情况做决策。</div>
+  </div>
+
+  <div class="football-field animate animate-d1">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:16px;flex:1">
+      <div style="font-size:.7rem;color:var(--success);font-weight:600">攻方状态</div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center">
+        <div class="fb-state"><div class="fb-icon">🔭</div><div class="fb-name">观察</div></div>
+        <div class="fb-arrow">→</div>
+        <div class="fb-state"><div class="fb-icon">🥢</div><div class="fb-name">试探</div></div>
+        <div class="fb-arrow">→</div>
+        <div class="fb-state"><div class="fb-icon">⚽</div><div class="fb-name">进攻准备</div></div>
+        <div class="fb-arrow">→</div>
+        <div class="fb-state"><div class="fb-icon">💥</div><div class="fb-name">突破</div></div>
+        <div class="fb-arrow">→</div>
+        <div class="fb-state"><div class="fb-icon">🤼</div><div class="fb-name">相持(50%)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="football-field animate animate-d2" style="margin-top:0;border-top:none;border-radius:0 0 var(--radius) var(--radius)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:16px;flex:1">
+      <div style="font-size:.7rem;color:var(--danger);font-weight:600">守方状态</div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center">
+        <div class="fb-state"><div class="fb-icon">🛡️</div><div class="fb-name">防范</div></div>
+        <div class="fb-arrow">→</div>
+        <div class="fb-state"><div class="fb-icon">✋</div><div class="fb-name">阻止</div></div>
+        <div class="fb-arrow">→</div>
+        <div class="fb-state"><div class="fb-icon">🧱</div><div class="fb-name">阻击</div></div>
+        <div class="fb-arrow">→</div>
+        <div class="fb-state"><div class="fb-icon">🤝</div><div class="fb-name">妥协</div></div>
+        <div class="fb-arrow">→</div>
+        <div class="fb-state"><div class="fb-icon">🏃</div><div class="fb-name">撤退</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card animate animate-d3" style="margin-top:24px">
+    <h4 style="color:var(--primary);margin-bottom:12px">⚽ 足球策略三要素（每次接球都要处理）</h4>
+    <table class="mini-table">
+      <thead><tr><th>#</th><th>问题</th><th>销售对应</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>我现在在哪个位置？</td><td style="color:var(--primary)">当前定位</td></tr>
+        <tr><td>2</td><td>我下一脚往哪传？</td><td style="color:var(--accent)">期待定位（小目标）</td></tr>
+        <tr><td>3</td><td>怎么传过去？长传？走地面？</td><td style="color:var(--success)">具体策略</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="quote-block animate animate-d3">
+    💡 <strong>关键认知</strong><br>
+    大单没有固定的成功概率——只有0或1，签或不签。<br>
+    <strong>层层台阶，总有一步是你现在的资源能干的。干不了就撤，换一条路。</strong>
+  </div>
+</section>
+
+<!-- ===== CH12: Four Secrets ===== -->
+<section class="section" id="ch12">
+  <div class="section-header animate">
+    <div class="section-num">第十二章</div>
+    <div class="section-title">四大策略研发绝招</div>
+    <div class="section-desc">批量生产致胜策略的四个核心方法</div>
+  </div>
+
+  <div class="card-grid animate animate-d1">
+    <div class="card" style="border-top:4px solid var(--primary)">
+      <div class="emoji-lg" style="text-align:center">🏰</div>
+      <h4 style="color:var(--primary);text-align:center">1. 扩大优势</h4>
+      <p style="font-size:.85rem;color:#cbd5e1;text-align:center">
+        <strong>扎硬寨，打呆仗</strong>（曾国藩）<br>
+        扎硬寨=把已有优势打牢<br>
+        打呆仗=<strong style="color:var(--accent)">用阳谋，不用阴谋</strong>
+      </p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--success)">
+      <div class="emoji-lg" style="text-align:center">🏔️</div>
+      <h4 style="color:var(--success);text-align:center">2. 及早攻克里程碑</h4>
+      <p style="font-size:.85rem;color:#cbd5e1;text-align:center">
+        测试、参观、搞定大老板……<br>
+        <strong style="color:var(--accent)">用尽资源在最早期完成</strong><br>
+        在最早期把最难的坡爬过去
+      </p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--primary2)">
+      <div class="emoji-lg" style="text-align:center">➕</div>
+      <h4 style="color:var(--primary2);text-align:center">3. 优势叠加</h4>
+      <p style="font-size:.85rem;color:#cbd5e1;text-align:center">
+        <strong>以多胜少</strong>（孙子兵法：五则攻之）<br>
+        不只靠一个TB，把PB也拉进来<br>
+        两个优势叠加→把对手挡在门外
+      </p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--accent)">
+      <div class="emoji-lg" style="text-align:center">🔧</div>
+      <h4 style="color:var(--accent);text-align:center">4. 杠杆原理</h4>
+      <p style="font-size:.85rem;color:#cbd5e1;text-align:center">
+        <strong>利用组织内部力量解决外部危机</strong><br>
+        搞不定副总→搞科员→搞部长→搞主任→接近副总
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CH13: Feedback & Levels ===== -->
+<section class="section" id="ch13">
+  <div class="section-header animate">
+    <div class="section-num">第十三章</div>
+    <div class="section-title">反馈闭环与三层境界</div>
+    <div class="section-desc">持续迭代，终身成长</div>
+  </div>
+
+  <div class="card-grid animate animate-d1">
+    <div class="card">
+      <h4 style="color:var(--primary);margin-bottom:12px">📡 三种反馈方式</h4>
+      <table class="mini-table">
+        <thead><tr><th>方式</th><th>操作方法</th></tr></thead>
+        <tbody>
+          <tr><td>🔄 加强覆盖</td><td>再跑一圈，看风向有没有变</td></tr>
+          <tr><td>👀 看承诺目标</td><td>行为比语言诚实——带8个主任来参观=彻底控盘</td></tr>
+          <tr><td>🎓 问教练</td><td>教练回传最隐秘的核心真相</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--accent);margin-bottom:12px">🏆 终极考题</h4>
+      <p style="font-size:.85rem;color:#cbd5e1">
+        <strong>客户要求"八个月交付"</strong><br>
+        普通销售："没问题！加班加点！"<br>
+        策略销售：追问八个月怎么来的？<br>
+        对手承诺的→劝王总改十个月<br>
+        领导死期→派专家做倒排计划<br>
+        <strong style="color:var(--accent)">永远探寻背后的真实故事</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="levels-stack animate animate-d2" style="margin-top:32px">
+    <div class="level-block l3">
+      <div class="lv-num">第三层境界 · 大师</div>
+      <div class="lv-title">🧘 指导工作、生活与人生</div>
+      <div class="lv-desc">策略的底层思维模型指导整个人生。遇到任何大变故，自发拆解，用模型思维和资源精准影响。</div>
+    </div>
+    <div class="level-block l2">
+      <div class="lv-num">第二层境界 · 高手</div>
+      <div class="lv-title">🧠 掌握研发策略的方法论</div>
+      <div class="lv-desc">学会了"如何研发招数"。遇到复杂变局，脑子里自动跑闭环：搜集信息→判定风险优势→确定定位→制定阳谋→观察反馈</div>
+    </div>
+    <div class="level-block l1">
+      <div class="lv-num">第一层境界 · 新手</div>
+      <div class="lv-title">📚 学会一些具体招数</div>
+      <div class="lv-desc">怎么对付采购、怎么搞定人——先学会标准打法</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPENDIX ===== -->
+<section class="section" id="appendix">
+  <div class="section-header animate">
+    <div class="section-num">附录</div>
+    <div class="section-title">📖 实用工具卡</div>
+  </div>
+
+  <div class="appendix-grid animate animate-d1">
+    <!-- A: Checklist -->
+    <div class="appendix-card">
+      <h4>📋 附录A：订单体检清单（每日自检）</h4>
+      <ul class="checklist">
+        <li>我有没有最新的竞争对手信息？</li>
+        <li>客户的SPO有没有变化（范围/方案/预算/日期）？</li>
+        <li>决策层的人员有没有变动？</li>
+        <li>我有没有新的风险出现？</li>
+        <li>我有没有新的优势建立？</li>
+        <li>我上周制定的策略执行效果如何？</li>
+        <li>我下一步的期待定位是什么？</li>
+        <li>我能不能接触到下一个需要覆盖的角色？</li>
+      </ul>
+    </div>
+
+    <!-- B: Role Cheatsheet -->
+    <div class="appendix-card">
+      <h4>🎯 附录B：四角色攻略备忘录</h4>
+      <table class="mini-table">
+        <thead><tr><th>角色</th><th>一句话攻略</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--accent);font-weight:700">EB</td><td>算投产比，拉高目标，用"神奇的一"算钱</td></tr>
+          <tr><td style="color:var(--primary);font-weight:700">TB</td><td>谈职业发展、怕担责，点头不算摇头算</td></tr>
+          <tr><td style="color:var(--success);font-weight:700">UB</td><td>全员覆盖，帮他省心省力，是杀死TB的武器</td></tr>
+          <tr><td style="color:var(--primary2);font-weight:700">PB</td><td>帮他做计划，秒回微信，合规优先</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- C: Stage Cheatsheet -->
+    <div class="appendix-card">
+      <h4>⚡ 附录C：采购阶段速查表</h4>
+      <table class="mini-table">
+        <thead><tr><th>阶段</th><th>策略</th><th>核心动作</th></tr></thead>
+        <tbody>
+          <tr><td>需求形成</td><td>高筑墙、广积粮、缓称王</td><td>拔高需求、增加沉默成本</td></tr>
+          <tr><td>方案评估</td><td>标准与评分设计</td><td>设主观活分、改写评分标准</td></tr>
+          <tr><td>采购决策</td><td>谈判与疑虑处理</td><td>区分需求与疑虑，主动挖雷</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- D: Mindset Flip -->
+    <div class="appendix-card">
+      <h4>💡 附录D：常见错误对照表</h4>
+      <div class="flip-cards">
+        <div class="flip-card"><span class="wrong">"客户要什么我满足什么"</span><span class="arrow-icon">→</span><span class="right">如何引导客户要我能赢的</span></div>
+        <div class="flip-card"><span class="wrong">"关系好=支持度高"</span><span class="arrow-icon">→</span><span class="right">关系好≠支持，要看结果和赢</span></div>
+        <div class="flip-card"><span class="wrong">"产品好客户就该买"</span><span class="arrow-icon">→</span><span class="right">好的结果不一定带来个人赢</span></div>
+        <div class="flip-card"><span class="wrong">"给回扣最管用"</span><span class="arrow-icon">→</span><span class="right">找到真实的个人赢比回扣管用100倍</span></div>
+        <div class="flip-card"><span class="wrong">"降价能解决问题"</span><span class="arrow-icon">→</span><span class="right">能用销售解决的，不用降价解决</span></div>
+        <div class="flip-card"><span class="wrong">"我是销售，我要单挑客户"</span><span class="arrow-icon">→</span><span class="right">我是导演，我要调动公司资源群殴</span></div>
+      </div>
+    </div>
+
+    <!-- E: Keyword Index -->
+    <div class="appendix-card" style="grid-column:1/-1">
+      <h4>🔍 附录E：关键词索引</h4>
+      <div class="tag-pills">
+        <span class="tag hot">五步法闭环</span><span class="tag hot">蓝表</span>
+        <span class="tag hot">SPO/SSO</span><span class="tag hot">采购三阶段</span>
+        <span class="tag hot">EB/TB/UB/PB</span><span class="tag hot">结果与赢</span>
+        <span class="tag hot">圈子</span><span class="tag hot">采购意愿四模式</span>
+        <span class="tag hot">领先与落后</span><span class="tag hot">足球策略</span>
+        <span class="tag tip">四大绝招</span><span class="tag tip">三层境界</span>
+        <span class="tag tip">铁三角</span><span class="tag tip">神奇的一</span>
+        <span class="tag tip">鸡过马路原理</span><span class="tag tip">电钻原理</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>📋 本手册基于崔建中策略销售课程系统整理，适用于新员工入职培训</p>
+  <p style="margin-top:8px;color:var(--primary)">
+    <strong>记住策略销售的核心：不是给你策略，而是教你如何自己研发策略。</strong>
+  </p>
+</footer>
+
+</main>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+// Nav toggle
+function toggleNav(){
+  const nav = document.getElementById('sideNav');
+  const main = document.getElementById('mainContent');
+  const btn = document.getElementById('navToggle');
+  nav.classList.toggle('open');
+  if(window.innerWidth > 1024){
+    nav.classList.toggle('hidden');
+    main.classList.toggle('expanded');
+    btn.classList.toggle('shifted');
+  }
+}
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.offsetTop - 100;
+    if(window.scrollY >= top) current = s.getAttribute('id');
+  });
+  navLinks.forEach(l => {
+    l.classList.remove('active');
+    if(l.getAttribute('href') === '#' + current) l.classList.add('active');
+  });
+});
+
+// Intersection Observer for animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animate'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.section-header, .card-grid, .card, .quote-block, .variables-grid, .role-cards, .stages-timeline, .duo-cards, .football-field, .levels-stack, .appendix-grid, .comparison-table, .flip-cards, .quadrant, .role-interaction')
+  .forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
